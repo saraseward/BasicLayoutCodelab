@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.codelab.basiclayouts.ui.theme.MySootheTheme
 import com.codelab.basiclayouts.ui.theme.darkGrey
 
-@Preview(showBackground = true, backgroundColor = 0xFF3D3F41, widthDp = 320, heightDp = 320)
+@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2, widthDp = 320, heightDp = 320)
 @Composable
 fun SearchBarPreview() {
     MySootheTheme { SearchBar(Modifier.padding(8.dp)) }
