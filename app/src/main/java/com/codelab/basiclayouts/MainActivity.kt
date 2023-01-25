@@ -51,10 +51,10 @@ class MainActivity : ComponentActivity() {
 fun SearchBar(
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
-    val textState = remember { mutableStateOf(TextFieldValue()) }
+//    todo test
+//    val context = LocalContext.current
+//    val textState = remember { mutableStateOf(TextFieldValue()) }
 
-    // Implement composable here
     TextField(
         leadingIcon = {
             Icon(
@@ -64,7 +64,7 @@ fun SearchBar(
         },
         label = { Text(stringResource(R.string.placeholder_search)) },
         value = "",
-        onValueChange = { showToast(context, textState.value.text) },
+        onValueChange = { },// todo test showToast(context, textState.value.text) },
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor = MaterialTheme.colors.surface
         ),
