@@ -21,9 +21,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.basiclayouts.ui.theme.MySootheTheme
@@ -40,7 +51,27 @@ class MainActivity : ComponentActivity() {
 fun SearchBar(
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
+    val textState = remember { mutableStateOf(TextFieldValue()) }
+
     // Implement composable here
+    TextField(
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = stringResource(R.string.placeholder_search)
+            )
+        },
+        label = { Text(stringResource(R.string.placeholder_search)) },
+        value = "",
+        onValueChange = { showToast(context, textState.value.text) },
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = MaterialTheme.colors.surface
+        ),
+        modifier = modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp)
+    )
 }
 
 // Step: Align your body - Alignment
@@ -91,7 +122,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
 // Step: Bottom navigation - Material
 @Composable
-private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
+fun SootheBottomNavigation(modifier: Modifier = Modifier) {
     // Implement composable here
 }
 
@@ -123,65 +154,3 @@ private data class DrawableStringPair(
     @DrawableRes val drawable: Int,
     @StringRes val text: Int
 )
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun SearchBarPreview() {
-    MySootheTheme { SearchBar(Modifier.padding(8.dp)) }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun AlignYourBodyElementPreview() {
-    MySootheTheme {
-        AlignYourBodyElement(
-            modifier = Modifier.padding(8.dp)
-        )
-    }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun FavoriteCollectionCardPreview() {
-    MySootheTheme {
-        FavoriteCollectionCard(
-            modifier = Modifier.padding(8.dp)
-        )
-    }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun FavoriteCollectionsGridPreview() {
-    MySootheTheme { FavoriteCollectionsGrid() }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun AlignYourBodyRowPreview() {
-    MySootheTheme { AlignYourBodyRow() }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun HomeSectionPreview() {
-    MySootheTheme { HomeSection() }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun ScreenContentPreview() {
-    MySootheTheme { HomeScreen() }
-}
-
-@Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
-@Composable
-fun BottomNavigationPreview() {
-    MySootheTheme { SootheBottomNavigation(Modifier.padding(top = 24.dp)) }
-}
-
-@Preview(widthDp = 360, heightDp = 640)
-@Composable
-fun MySoothePreview() {
-    MySootheApp()
-}

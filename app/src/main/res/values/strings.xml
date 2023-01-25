@@ -13,6 +13,10 @@
   -->
 <resources>
     <string name="app_name">MySoothe</string>
+
+    <!--    Search bar-->
+    <string name="placeholder_search">Search</string>
+    <!--    Other-->
     <string name="favorite_collections">Favorite Collections</string>
     <string name="align_your_body">Align your body</string>
     <string name="ab1_inversions">Inversions</string>
@@ -30,5 +34,4 @@
     <string name="cd_fab_start">start</string>
     <string name="bottom_navigation_home">HOME</string>
     <string name="bottom_navigation_profile">PROFILE</string>
-    <string name="placeholder_search">Search</string>
 </resources>

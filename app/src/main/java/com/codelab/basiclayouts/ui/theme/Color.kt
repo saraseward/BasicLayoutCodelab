@@ -18,6 +18,8 @@ package com.codelab.basiclayouts.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val darkGrey = Color(0xFF3D3F41)
+
 val taupe100 = Color(0xFFF0EAE2)
 val taupe800 = Color(0xFF655454)
 val rust300 = Color(0xFFE1AFAF)
