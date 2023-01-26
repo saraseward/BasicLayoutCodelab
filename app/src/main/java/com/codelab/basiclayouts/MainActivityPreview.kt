@@ -20,7 +20,9 @@ fun SearchBarPreview() {
 fun AlignYourBodyElementPreview() {
     MySootheTheme {
         AlignYourBodyElement(
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp),
+            R.drawable.ab1_inversions,
+            R.string.ab1_inversions
         )
     }
 }
